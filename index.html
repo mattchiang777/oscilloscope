@@ -9,15 +9,26 @@
       margin: 0;
     } 
 
+    .about {
+      color: #fff;
+      font-family: Helvetica, sans-serif;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+
     #controls {
       position: absolute;
       background-color: #000;
-      top: 256px;
       left: 0;
     }
   </style>
 </head>
 <body>
+
+  <div class="about">
+    Oscillator Controls — Click the canvas to pause/play the waveform animation.
+  </div>
 
   <div id="controls"></div>
 
@@ -32,7 +43,9 @@
   <script src="js/lib/p5.dom.js"></script>
   <script src="js/lib/p5.sound.js"></script>
   <!-- Oscillator -->
-  <script src="js/lissajous.js"></script>
-  <!-- // <script src="js/osc.js"></script> -->
-  <!-- // <script src="js/fftanalyzer.js"></script> -->
+  <!-- // <script src="js/lissajous.js"></script> -->
+  <script src="js/osc.js"></script>
+  <script>
+    $('#controls').css('top', $(document).height() / 2);
+  </script>
 </html>
