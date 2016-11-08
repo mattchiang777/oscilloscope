@@ -13,7 +13,7 @@ var inc_t = 1;
 var sound1, sound2;
 
 function preload() {
-	sound1 = loadSound('0001.mp3');
+	// sound1 = loadSound('0001.mp3');
 }
 
 function setup() {
@@ -22,9 +22,9 @@ function setup() {
 
 	frameRate(30);
 
-	sound2 = new p5.AudioIn();
-	sound1.play();
-	sound2.start();
+	// sound2 = new p5.AudioIn();
+	// sound1.play();
+	// sound2.start();
 	delta = PI/2;
 
 	AX = 200;
@@ -44,16 +44,21 @@ function draw() {
 	// console.log(a[600]);
 
 	beginShape();
-	strokeWeight(15);
-	for (var i = 0; i < 4000; i++) {
+	strokeWeight(0);
+	for (var i = 0; i < 1000; i++) {
 		// x = drawLissajousX(mouseX, 10*abs(a[600]), millis(), delta) + mouseX;
 		// y = drawLissajousY(mouseY, 7, millis()) + mouseY;
-		x = drawLissajousX(200, 3.01, millis(), delta) + windowWidth/2;
-		y = drawLissajousY(200, 2, millis()) + windowHeight/2;
+		// x = drawLissajousX(200, 3, i, delta) + windowWidth/2;
+		// y = drawLissajousY(200, 2, i) + windowHeight/2;
+
+		// static with mouse interactions
+		x = drawLissajousX(mouseX, 3, i, millis()/100) + windowWidth/2;
+		y = drawLissajousY(mouseY, 2, i) + windowHeight/2;		
+		
 		// 1 and 2.01
-		vertex(x, y);
-		// fill(0, 255, 0);
-		// ellipse(x, y, 10, 10);
+		// vertex(x, y); // keeps it sharp cause it's a vertex
+		fill(0, 0, 0);
+		ellipse(x, y, 10, 10);
 	}
 	endShape();
 
